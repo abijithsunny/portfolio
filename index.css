@@ -1,0 +1,1763 @@
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+:root {
+    --bg-color: #ffffff;
+    --section-bg: #f5f5f5;
+    --card-bg: #ffffff;
+    --text-color: #111111;
+    --secondary-text: #121111;
+    --border-color: #dddddd;
+    --nav-bg: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --accent: #111111;
+}
+
+body.dark-mode {
+    --bg-color: #111111;
+    --section-bg: #181818;
+    --card-bg: #222222;
+    --text-color: #ffffff;
+    --secondary-text: #b5b5b5;
+    --border-color: #333333;
+    --nav-bg: #111111;
+    --shadow: rgba(0, 0, 0, 0.35);
+    --accent: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* =========================================================
+   HEADER / NAVBAR
+========================================================= */
+header {
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar {
+    width: 100%;
+    height: 115px;
+    padding: 0 4%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: var(--nav-bg);
+    box-shadow: 0 2px 15px var(--shadow);
+
+    transition: background-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.theme-toggle {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+
+    background: var(--card-bg);
+    color: var(--text-color);
+
+    font-size: 18px;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg);
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo p {
+    font-size: 35px;
+    font-weight: 800;
+    font-family: "PP Pangaia Ultralight", sans-serif;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    padding-left: 20px;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    list-style: none;
+}
+
+nav ul li a {
+    color: #626262;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent);
+}
+
+
+/* =========================================================
+   CV BUTTON
+========================================================= */
+
+.cv-button {
+    padding: 10px 18px;
+
+    background-color: var(--text-color);
+    color: var(--bg-color); 
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.cv-button:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
+.toggle_btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+     
+   
+
+}
+
+
+/* =========================================================
+   NAVBAR - TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .navbar {
+        padding: 0 30px;
+    }
+
+    nav ul {
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   NAVBAR - MOBILE
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .toggle_btn {
+        display: block;
+ color: var(--bg-color);
+        position: absolute;
+        right: 4%;
+    }
+
+    nav ul {
+        position: fixed;
+
+        top: 115px;
+        right: -100%;
+
+        width: 100%;
+        height: calc(100vh - 115px);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 30px;
+
+        background-color: var(--nav-bg);
+
+        transition: right 0.5s ease;
+    }
+
+    nav ul.active {
+        right: 0;
+    }
+
+    nav ul li a {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================
+   NAVBAR - SMALL MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        height: 100px;
+        padding: 0 25px;
+    }
+
+    nav ul {
+        top: 100px;
+        height: calc(100vh - 100px);
+    }
+
+    .toggle_btn {
+        right: 4%;
+    }
+
+    .logo img {
+        height: 60px;
+        padding: 0;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .navbar {
+        height: 90px;
+        padding: 0 20px;
+    }
+
+    nav ul {
+        top: 90px;
+        height: calc(100vh - 90px);
+    }
+
+    .logo img {
+        width: auto;
+        height: 55px;
+        padding: 0;
+    }
+
+    .toggle_btn {
+        right: 4%;
+    }
+}
+
+
+@media (max-width: 375px) {
+
+    .navbar {
+        height: 85px;
+    }
+
+    nav ul {
+        top: 85px;
+        height: calc(100vh - 85px);
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .toggle_btn {
+        right: 4%;
+    }
+}
+
+
+/* =========================================================
+   BANNER / HERO SECTION
+========================================================= */
+
+.banner {
+    width: 100%;
+
+    margin-top: 115px;
+    padding: 40px 20px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.banner-container {
+    width: 100%;
+    max-width: 1200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 50px;
+
+    flex-wrap: wrap;
+}
+
+.banner-content {
+    flex: 1;
+    min-width: 280px;
+
+    padding-left: 8%;
+}
+
+.banner-content h1 {
+    margin-bottom: 15px;
+
+     
+    color: var(--text-color);
+
+    font-family: "Roboto", sans-serif;
+    font-size: 48px;
+}
+
+.banner-content p {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   BANNER IMAGE
+========================================================= */
+
+.banner-image {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+}
+
+.banner-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+
+    border: 8px solid #fff;
+    border-radius: 15%;
+
+    box-shadow: 20px 20px rgba(128, 128, 128, 0.35);
+}
+
+
+/* =========================================================
+   LOCATION / ONLINE STATUS
+========================================================= */
+
+.location {
+    padding-top: 5%;
+}
+
+.location .fa-solid {
+    padding-right: 8px;
+}
+
+.location label {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+
+.online {
+    padding-top: 20px;
+}
+
+.online label {
+    padding-left: 8px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   SOCIAL / LINK ICONS
+========================================================= */
+
+.link-icon {
+    display: flex;
+    align-items: center;
+
+    gap: 40px;
+
+    padding-top: 6%;
+}
+
+.link-icon a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   BANNER - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .banner {
+        margin-top: 100px;
+    }
+
+    .banner-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .banner-content {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .banner-content h1 {
+        font-size: 36px;
+    }
+
+    .banner-content p {
+        font-size: 18px;
+    }
+
+    .location {
+        padding-top: 3%;
+    }
+
+    .online {
+        padding-top: 10px;
+    }
+
+    .link-icon {
+        justify-content: center;
+        padding-top: 5%;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .banner {
+        padding: 30px 15px;
+    }
+
+    .banner-content h1 {
+        font-size: 32px;
+    }
+
+    .banner-content p {
+        font-size: 17px;
+    }
+}
+
+
+@media (max-width: 375px) {
+
+    .location {
+        padding-top: 5%;
+    }
+
+    .online {
+        padding-top: 10px;
+    }
+
+    .link-icon {
+        padding-top: 8%;
+    }
+
+    .banner-image img {
+        max-width: 270px;
+    }
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.about {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+     background-color: var(--section-bg);
+    color: var(--text-color);
+}
+
+.about-container {
+    width: 100%;
+    max-width: 775px;
+}
+
+.about-content {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.about-content h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    font-family: sans-serif;
+    font-size: 38px;
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.about-content h1 {
+    margin-bottom: 30px;
+    line-height: 1.3;
+}
+
+.about-content p {
+    margin-bottom: 22px;
+
+   
+    color: var(--text-color);
+
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+.about-content label {
+     
+    color: var(--text-color);
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   EDUCATION SECTION
+========================================================= */
+
+.education-section {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 10px 8% 40px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   SECTION TAG
+========================================================= */
+
+.section-tag {
+    margin-top: 0;
+    padding: 11px 21px;
+
+    border: 1px solid #075e6d;
+    border-radius: 30px;
+
+    background: rgba(4, 40, 47, 0.45);
+    color: #a8a8a8;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+
+/* =========================================================
+   EDUCATION TITLE
+========================================================= */
+
+.education-section h1 {
+    margin-top: 30px;
+    margin-bottom: 75px;
+
+    font-family: sans-serif;
+    font-size: 38px;
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+
+/* =========================================================
+   EDUCATION CARD
+========================================================= */
+
+.education-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 1360px;
+    height: 448px;
+
+    overflow: hidden;
+
+    border: 1px solid #292929;
+    border-radius: 18px;
+
+    background: #181818;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   EDUCATION IMAGE
+========================================================= */
+
+.college-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    opacity: 0.85;
+
+    transition: transform 0.6s ease;
+}
+
+.education-card:hover .college-image {
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.70) 0%,
+        rgba(0, 0, 0, 0.55) 30%,
+        rgba(0, 0, 0, 0.45) 60%,
+        rgba(0, 0, 0, 0.65) 100%
+    );
+}
+
+.image-overlay::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.65),
+        transparent 55%
+    );
+}
+
+
+/* =========================================================
+   EDUCATION CONTENT
+========================================================= */
+
+.education-content {
+    position: absolute;
+
+    left: 38px;
+    bottom: 40px;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    font-family: sans-serif;
+}
+
+
+/* =========================================================
+   GRADUATION ICON
+========================================================= */
+
+.graduation-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 15px;
+}
+
+.graduation-icon i {
+    color: #fff;
+    font-size: 36px;
+}
+
+
+/* =========================================================
+   DEGREE BADGE
+========================================================= */
+
+.degree-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 19px;
+    padding: 9px 18px;
+
+    border-radius: 25px;
+
+    background: #f5f5f5;
+    color: #252525;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   DEGREE TITLE
+========================================================= */
+
+.education-content h2 {
+    margin-bottom: 21px;
+
+    color: #fff;
+
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   EDUCATION INFORMATION
+========================================================= */
+
+.info-row {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+
+    color: #a9a9a9;
+
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.info-row i {
+    width: 13px;
+
+    color: #a9a9a9;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   SLIDER DOTS
+========================================================= */
+
+.slider-dots {
+    position: absolute;
+
+    top: 82%;
+    right: -5px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.dot {
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: #fff;
+    opacity: 0.35;
+}
+
+.dot.active {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   EDUCATION - TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .education-section {
+        padding: 20px 5% 50px;
+    }
+
+    .education-section h1 {
+        margin-bottom: 55px;
+        font-size: 48px;
+    }
+
+    .education-card {
+        height: 430px;
+    }
+}
+
+
+/* =========================================================
+   EDUCATION - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .education-section {
+        padding: 20px 25px 50px;
+    }
+
+    .section-tag {
+        padding: 10px 17px;
+
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+    .education-section h1 {
+        margin-top: 28px;
+        margin-bottom: 45px;
+
+        font-size: 42px;
+    }
+
+    .education-card {
+        height: 420px;
+        border-radius: 15px;
+    }
+
+    .education-content {
+        left: 28px;
+        bottom: 30px;
+    }
+
+    .education-content h2 {
+        font-size: 20px;
+    }
+
+    .info-row {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   EDUCATION - SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .education-section {
+        padding: 20px 16px 45px;
+    }
+
+    .section-tag {
+        padding: 9px 14px;
+
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .education-section h1 {
+        margin-top: 25px;
+        margin-bottom: 35px;
+
+        font-size: 36px;
+        letter-spacing: -1px;
+    }
+
+    .education-card {
+        height: 430px;
+        border-radius: 14px;
+    }
+
+    .college-image {
+        object-position: center;
+    }
+
+    .image-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.80)
+        );
+    }
+
+    .education-content {
+        left: 22px;
+        right: 20px;
+        bottom: 25px;
+    }
+
+    .graduation-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 10px;
+    }
+
+    .graduation-icon i {
+        font-size: 31px;
+    }
+
+    .degree-badge {
+        margin-bottom: 15px;
+        padding: 8px 16px;
+
+        font-size: 11px;
+    }
+
+    .education-content h2 {
+        margin-bottom: 17px;
+        font-size: 18px;
+    }
+
+    .info-row {
+        gap: 9px;
+        margin-bottom: 11px;
+
+        font-size: 13px;
+    }
+
+    .info-row i {
+        font-size: 14px;
+    }
+
+    .slider-dots {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   SKILLS SECTION
+========================================================= */
+
+.skills {
+    display: flex;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+     background-color: var(--section-bg);
+    color: var(--text-color);
+}
+
+.skills-container {
+    width: 100%;
+    max-width: 1080px;
+}
+
+.skills-heading {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.skills-heading h4 {
+    margin-top: 30px;
+    margin-bottom: 35px;
+
+    font-family: sans-serif;
+    font-size: 38px;
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.skills-heading p {
+    color: #333;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   SKILLS ICONS
+========================================================= */
+
+.skills-icon {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 40px;
+}
+
+.skills-icon1 {
+    width: 120px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    font-family: "Roboto", sans-serif;
+}
+
+.skills-icon1 img {
+    width: 80px;
+    height: 80px;
+
+    margin-bottom: 10px;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+.skills-icon1 label {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+.skills-icon1:hover img {
+    transform: scale(1.15) translateY(-6px);
+
+    filter: drop-shadow(
+        0 10px 15px rgba(0, 0, 0, 0.15)
+    );
+}
+
+
+/* =========================================================
+   WORK / PROJECT SECTION
+========================================================= */
+
+.work-section {
+    position: relative;
+background-color: var(--section-bg);
+    color: var(--text-color);
+}
+
+.work-section .container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: auto;
+    padding: 25px 20px;
+
+    position: relative;
+
+    /*
+       Removed fixed height and overflow-y.
+       This allows the main webpage to scroll naturally.
+    */
+}
+
+
+/* =========================================================
+   WORK SECTION HEADER
+========================================================= */
+
+.section-header {
+    position: relative;
+
+    text-align: center;
+}
+
+.section-header h4 {
+    margin-top: 30px;
+    margin-bottom: 35px;
+
+    font-family: sans-serif;
+    font-size: 38px;
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.section-header p {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   PROJECT BADGE
+========================================================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+.project-card {
+    position: sticky;
+    top: 30px;
+
+    width: 100%;
+    max-width: 1200px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    gap: 40px;
+
+    margin-bottom: 40px;
+    padding: 40px;
+
+    background: #fff;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.283);
+}
+
+
+/*
+   Different sticky positions create
+   the stacked-card effect.
+*/
+
+.project-card:nth-of-type(2) {
+    top: 60px;
+}
+
+.project-card:nth-of-type(3) {
+    top: 90px;
+}
+
+.project-card:nth-of-type(4) {
+    top: 120px;
+}
+
+.project-card:nth-of-type(5) {
+    top: 150px;
+}
+
+
+/* =========================================================
+   REVERSE PROJECT CARD
+========================================================= */
+
+.project-card.reverse {
+    direction: rtl;
+}
+
+.project-card.reverse .project-content {
+    direction: ltr;
+}
+
+
+/* =========================================================
+   PROJECT IMAGE
+========================================================= */
+
+.project-image img {
+    display: block;
+
+    width: 100%;
+
+    border-radius: 14px;
+}
+
+
+/* =========================================================
+   PROJECT CONTENT
+========================================================= */
+
+.project-content h3 {
+    margin-bottom: 14px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+}
+
+.project-content p {
+    margin-bottom: 20px;
+
+    color: #666;
+
+    font-family: "Roboto", sans-serif;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   PROJECT TAGS
+========================================================= */
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+.tags span {
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    background: #f3f3f3;
+    color: #555;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   PROJECT LINKS
+========================================================= */
+
+.external-link {
+    color: #333;
+
+    font-size: 18px;
+
+    text-decoration: none;
+}
+
+.badge2 {
+    display: inline-block;
+
+    margin-bottom: 24px;
+    padding: 20px;
+
+    border-radius: 15px;
+
+    background-color: var(--text-color);
+    color: var(--bg-color);
+
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   PROJECTS - MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .project-card {
+        position: relative;
+        top: auto !important;
+
+        grid-template-columns: 1fr;
+
+        padding: 24px;
+    }
+
+    .project-card.reverse {
+        direction: ltr;
+    }
+}
+
+
+/* =========================================================
+   EXPERIENCE SECTION
+========================================================= */
+
+.experience-section{
+
+ background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.experience-section .container {
+    max-width: 900px;
+
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.experience-heading {
+    margin-bottom: 30px;
+
+    text-align: center;
+}
+
+.experience-heading h4 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    font-family: sans-serif;
+    font-size: 38px;
+    line-height: 1;
+}
+
+.experience-heading p {
+    padding: 14px 0;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   EXPERIENCE TITLE
+========================================================= */
+
+.section-title {
+    margin-bottom: 40px;
+
+    color: #6b7280;
+
+    font-size: 20px;
+    font-weight: 500;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   EXPERIENCE CARD
+========================================================= */
+
+.exp-card {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    align-items: flex-start;
+
+    gap: 40px;
+
+    margin-bottom: 24px;
+    padding: 32px 40px;
+
+    background: #fff;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        0 6px 20px rgba(0, 0, 0, 0);
+}
+
+
+/* =========================================================
+   COMPANY
+========================================================= */
+
+.company {
+    color: rgb(14, 226, 14);
+
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   EXPERIENCE HEADER
+========================================================= */
+
+.exp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+}
+
+.exp-header h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.exp-header span {
+    color: #6b7280;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   EXPERIENCE CONTENT
+========================================================= */
+
+.exp-content ul {
+    padding-left: 18px;
+}
+
+.exp-content li {
+    margin-bottom: 8px;
+
+    color: #4b5563;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   EXPERIENCE - MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .exp-card {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        padding: 25px;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 4px;
+    }
+
+    .exp-content li {
+        font-size: 16px;
+    }
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.contact-section {
+    padding: 50px 10px;
+     background-color: var(--bg-color);
+    color: var(--text-color);
+
+    text-align: center;
+}
+
+.contact-container {
+    max-width: 750px;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   CONTACT BADGE
+========================================================= */
+
+.badge1 {
+    display: inline-block;
+
+    margin-bottom: 24px;
+    padding: 6px 16px;
+
+    border-radius: 8px;
+
+    background-color: var(--text-color);
+    color: var(--bg-color);
+
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   CONTACT DESCRIPTION
+========================================================= */
+
+.contact-container h2 {
+    margin-bottom: 50px;
+
+    color: var(--text-color);
+
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   CONTACT INFORMATION
+========================================================= */
+
+.contact-info {
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    
+}
+
+.contact-item i {
+    width: 28px;
+    height: 28px;
+    
+
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   COPY ICON
+========================================================= */
+
+.copy-button {
+    width: 22px;
+    height: 22px;
+     background: none;
+    border: none;
+  color: var(--text-color);
+    cursor: pointer;
+
+    transition: color 0.3s ease;
+}
+
+.copy-icon:hover {
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   SOCIAL MEDIA
+========================================================= */
+
+.social-text {
+    margin-bottom: 18px;
+
+    color: var(--text-color);
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+}
+
+.social-icons {
+  color: var(--text-color); ;
+    display: flex;
+    justify-content: center;
+
+    gap: 22px;
+}
+
+.social-icons i {
+    width: 22px;
+    height: 22px;
+
+    color: #000;
+
+    cursor: pointer;
+
+    transition: color 0.3s ease;
+}
+
+.social-icons i:hover {
+    color: #050606;
+}
+
+.lucide {
+    color: rgb(44, 44, 44);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 20px;
+
+    background-color: var(--section-bg);
+    color: var(--text-color);
+
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+
+    text-align: center;
+}
+
+.heart {
+    color: red;
+}
+
+
+/* =========================================================
+   CONTACT - MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .contact-item {
+        font-size: 20px;
+    }
+
+    .contact-container h2 {
+        font-size: 19px;
+    }
+}
+
+
+@media (max-width: 375px) {
+
+    .contact-item {
+        font-size: 16px;
+    }
+
+    .contact-container h2 {
+        font-size: 18px;
+    }
+}
+/* 
+### Main fixes I made
+
+* Fixed `18x` → `18px`
+* Fixed `calc(100%-120px)` → proper `calc(100vh - 120px)`
+* Removed duplicate `nav`/`.navbar` layout rules
+* Kept only one fixed navbar system
+* Added proper mobile navbar heights
+* Fixed mobile logo sizing
+* Removed unnecessary `;;`
+* Changed project cards to use safer sticky positioning
+* Made project cards stop being sticky on mobile
+* Removed the internal `750px` project scrolling so the **main webpage scrolls naturally**
+* Organized the entire CSS into clear professional sections
+* Kept your existing visual design rather than redesigning it
+* Added `scroll-behavior: smooth`
+* Improved consistency of spacing, transitions, and formatting
+
+**One important point:** your `.project-card:nth-of-type()` selectors depend on the exact HTML structure. If you send me your **`App.jsx` / HTML structure**, I can match the selectors exactly so the sticky project-card animation works correctly without changing your design. */
+
+
+
+
+.exp-card,
+.project-card,
+.skills-icon1 {
+    color: var(--text-color);
+    border-color: var(--border-color);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+.about-content p h1 label,
+.section-header p,
+.skills-heading p,
+.experience-heading p {
+    color: var(--secondary-text);
+}
+
+
+
+
