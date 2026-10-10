@@ -7,7 +7,7 @@ This project showcases my skills, projects, and experience as a Full Stack Web D
 🚀 Live Demo
 
 🔗 View Portfolio
-(https://abijithsunny.github.io/Portfolio/)
+([https://abijithsunny.github.io/Portfolio/](https://abijithsunny.github.io/portfolio/))
 
 👨‍💻 About Me
 
